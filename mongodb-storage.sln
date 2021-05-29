@@ -1,38 +1,37 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 14
-VisualStudioVersion = 14.0.24720.0
+# Visual Studio 15
+VisualStudioVersion = 15.0.27428.2005
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "Openchain.MongoDb", "src\Openchain.MongoDb\Openchain.MongoDb.xproj", "{D4652647-234B-4B32-935F-3E192C1E7401}"
-EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{37A24461-57B4-4374-9A7F-F19D2D937EEF}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "test", "test", "{7D782A1D-9A04-4A20-B995-34A77159C4BA}"
 EndProject
-Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "Openchain.MongoDb.Tests", "test\Openchain.MongoDb.Tests\Openchain.MongoDb.Tests.xproj", "{F4804AFC-37F3-4A63-8363-BB72881E5AE7}"
-EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{D3D578A5-7A5E-4869-A6A5-86FC56BC3C28}"
 	ProjectSection(SolutionItems) = preProject
-		global.json = global.json
 		LICENSE = LICENSE
 		README.md = README.md
 	EndProjectSection
 EndProject
-Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "Openchain.Abstractions", "openchain\src\Openchain.Abstractions\Openchain.Abstractions.xproj", "{CA9A2FB3-5BB1-4730-A65E-16BD9831F303}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Openchain.MongoDb", "src\Openchain.MongoDb\Openchain.MongoDb.csproj", "{D4652647-234B-4B32-935F-3E192C1E7401}"
 EndProject
-Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "Openchain.Anchoring.Blockchain", "openchain\src\Openchain.Anchoring.Blockchain\Openchain.Anchoring.Blockchain.xproj", "{B392C570-EFCC-4684-B7D8-0A645B49EAED}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Openchain.MongoDb.Tests", "test\Openchain.MongoDb.Tests\Openchain.MongoDb.Tests.csproj", "{F4804AFC-37F3-4A63-8363-BB72881E5AE7}"
 EndProject
-Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "Openchain.Infrastructure", "openchain\src\Openchain.Infrastructure\Openchain.Infrastructure.xproj", "{F348FDBD-8D12-4CD7-B55B-2E52FCFA8C71}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Openchain.Abstractions", "openchain\src\Openchain.Abstractions\Openchain.Abstractions.csproj", "{CA9A2FB3-5BB1-4730-A65E-16BD9831F303}"
 EndProject
-Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "Openchain.Server", "openchain\src\Openchain.Server\Openchain.Server.xproj", "{C24C1145-878A-476A-AC93-6A272BE3D139}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Openchain.Anchoring.Blockchain", "openchain\src\Openchain.Anchoring.Blockchain\Openchain.Anchoring.Blockchain.csproj", "{B392C570-EFCC-4684-B7D8-0A645B49EAED}"
 EndProject
-Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "Openchain.Validation.PermissionBased", "openchain\src\Openchain.Validation.PermissionBased\Openchain.Validation.PermissionBased.xproj", "{3BA6CCC3-432A-4B3E-8D46-5E48A2F44DA3}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Openchain.Infrastructure", "openchain\src\Openchain.Infrastructure\Openchain.Infrastructure.csproj", "{F348FDBD-8D12-4CD7-B55B-2E52FCFA8C71}"
 EndProject
-Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "Openchain.Abstractions.Tests", "openchain\test\Openchain.Abstractions.Tests\Openchain.Abstractions.Tests.xproj", "{38A38DEF-1B86-495E-8674-2AA135CE016A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Openchain.Server", "openchain\src\Openchain.Server\Openchain.Server.csproj", "{C24C1145-878A-476A-AC93-6A272BE3D139}"
 EndProject
-Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "Openchain.Infrastructure.Tests", "openchain\test\Openchain.Infrastructure.Tests\Openchain.Infrastructure.Tests.xproj", "{91B5C8B9-602C-4843-A2BE-DA82B3F7449B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Openchain.Validation.PermissionBased", "openchain\src\Openchain.Validation.PermissionBased\Openchain.Validation.PermissionBased.csproj", "{3BA6CCC3-432A-4B3E-8D46-5E48A2F44DA3}"
 EndProject
-Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "Run", "src\Run\Run.xproj", "{4E681F58-48D8-4F63-9CDA-FB1D4E584F84}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Openchain.Abstractions.Tests", "openchain\test\Openchain.Abstractions.Tests\Openchain.Abstractions.Tests.csproj", "{38A38DEF-1B86-495E-8674-2AA135CE016A}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Openchain.Infrastructure.Tests", "openchain\test\Openchain.Infrastructure.Tests\Openchain.Infrastructure.Tests.csproj", "{91B5C8B9-602C-4843-A2BE-DA82B3F7449B}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Run", "src\Run\Run.csproj", "{4E681F58-48D8-4F63-9CDA-FB1D4E584F84}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -95,5 +94,8 @@ Global
 		{38A38DEF-1B86-495E-8674-2AA135CE016A} = {7D782A1D-9A04-4A20-B995-34A77159C4BA}
 		{91B5C8B9-602C-4843-A2BE-DA82B3F7449B} = {7D782A1D-9A04-4A20-B995-34A77159C4BA}
 		{4E681F58-48D8-4F63-9CDA-FB1D4E584F84} = {37A24461-57B4-4374-9A7F-F19D2D937EEF}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {7F6E62B5-3E28-4E6A-A382-0129FA6619FE}
 	EndGlobalSection
 EndGlobal

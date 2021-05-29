@@ -1,0 +1,34 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <Description>Unit tests for the Openchain.MongoDb package.</Description>
+    <Copyright>Copyright © 2016</Copyright>
+    <VersionPrefix>0.2.0</VersionPrefix>
+    <Authors>Frédéric Luce</Authors>
+    <TargetFramework>netcoreapp1.5</TargetFramework>
+    <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
+    <AssemblyName>Openchain.MongoDb.Tests</AssemblyName>
+    <PackageId>Openchain.MongoDb.Tests</PackageId>
+    <GenerateRuntimeConfigurationFiles>true</GenerateRuntimeConfigurationFiles>
+    <PackageIconUrl>https://www.openchain.org/package.png</PackageIconUrl>
+    <PackageProjectUrl>https://github.com/openchain/mongodb-storage</PackageProjectUrl>
+    <PackageLicenseUrl>https://www.apache.org/licenses/LICENSE-2.0</PackageLicenseUrl>
+    <PackageTargetFallback>$(PackageTargetFallback);dnxcore50;portable-net45+win8</PackageTargetFallback>
+    <RuntimeFrameworkVersion>1.1.1</RuntimeFrameworkVersion>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\openchain\test\Openchain.Abstractions.Tests\Openchain.Abstractions.Tests.csproj" />
+    <ProjectReference Include="..\..\openchain\test\Openchain.Infrastructure.Tests\Openchain.Infrastructure.Tests.csproj" />
+    <ProjectReference Include="..\..\src\Openchain.MongoDb\Openchain.MongoDb.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.NET.Test.Sdk" Version="15.0.0-preview-20170106-08" />
+    <PackageReference Include="xunit.runner.visualstudio" Version="2.2.0-beta5-build1225" />
+    <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="1.0.2" />
+    <PackageReference Include="Microsoft.Extensions.Logging.Console" Version="1.0.2" />
+    <PackageReference Include="xunit" Version="2.2.0-beta5-build3474" />
+  </ItemGroup>
+
+</Project>

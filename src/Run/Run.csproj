@@ -1,0 +1,32 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp1.1</TargetFramework>
+    <PreserveCompilationContext>true</PreserveCompilationContext>
+    <AssemblyName>Run</AssemblyName>
+    <OutputType>Exe</OutputType>
+    <PackageId>Run</PackageId>
+    <RuntimeFrameworkVersion>1.1.1</RuntimeFrameworkVersion>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Update="data\**\*">
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </None>
+    <None Update="**.xproj;**.user;**.vspscc">
+      <CopyToPublishDirectory>Never</CopyToPublishDirectory>
+    </None>
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\openchain\src\Openchain.Server\Openchain.Server.csproj" />
+    <ProjectReference Include="..\..\openchain\src\Openchain.Anchoring.Blockchain\Openchain.Anchoring.Blockchain.csproj" />
+    <ProjectReference Include="..\Openchain.MongoDb\Openchain.MongoDb.csproj" />
+    <ProjectReference Include="..\..\openchain\src\Openchain.Validation.PermissionBased\Openchain.Validation.PermissionBased.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.Server.IISIntegration" Version="1.1.1" />
+  </ItemGroup>
+
+</Project>
