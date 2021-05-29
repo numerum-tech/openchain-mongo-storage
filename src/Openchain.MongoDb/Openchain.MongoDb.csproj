@@ -4,7 +4,7 @@
     <Description>MongoDb storage module for Openchain Server</Description>
     <VersionPrefix>0.2.0</VersionPrefix>
     <Authors>Frédéric Luce</Authors>
-    <TargetFramework>netstandard1.5</TargetFramework>
+	<TargetFramework>net5.0</TargetFramework>
     <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
     <AssemblyName>Openchain.MongoDb</AssemblyName>
     <PackageId>Openchain.MongoDb</PackageId>
@@ -24,6 +24,16 @@
     <ProjectReference Include="..\..\openchain\src\Openchain.Infrastructure\Openchain.Infrastructure.csproj" />
     <PackageReference Include="MongoDB.Driver" Version="2.3.0" />
     <PackageReference Include="Microsoft.Extensions.Logging.Abstractions" Version="1.0.2" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.Extensions.Logging" Version="5.0.0" />
+    <PackageReference Include="MongoDB.Bson" Version="2.12.3" />
+    <PackageReference Include="MongoDB.Driver" Version="2.12.3" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\openchain\src\Openchain.Infrastructure\Openchain.Infrastructure.csproj" />
   </ItemGroup>
 
 </Project>

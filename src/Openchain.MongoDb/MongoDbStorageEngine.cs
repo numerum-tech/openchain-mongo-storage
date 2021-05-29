@@ -122,13 +122,13 @@ namespace Openchain.MongoDb
                         {
                             if (r.Version.Length == 0) // No record expected
                             {
-                                var res = await RecordCollection.CountAsync(x => x.Key.Equals(r.Key));
+                                var res = await RecordCollection.CountDocumentsAsync(x => x.Key.Equals(r.Key));
                                 if (res != 0) // a record exists
                                     throw new ConcurrentMutationException(rec);
                             }
                             else
                             {   // specific version expected
-                                var res = await RecordCollection.CountAsync(x => x.Key.Equals(r.Key) && x.Version.Equals(r.Version));
+                                var res = await RecordCollection.CountDocumentsAsync(x => x.Key.Equals(r.Key) && x.Version.Equals(r.Version));
                                 if (res != 1) // expected version not found
                                     throw new ConcurrentMutationException(rec);
                             }
@@ -475,11 +475,30 @@ namespace Openchain.MongoDb
 
         internal async Task CreateIndexes()
         {
-            await TransactionCollection.Indexes.CreateOneAsync(Builders<MongoDbTransaction>.IndexKeys.Ascending(x => x.Timestamp), new CreateIndexOptions { Background = true, Unique = true });
-            await TransactionCollection.Indexes.CreateOneAsync(Builders<MongoDbTransaction>.IndexKeys.Ascending(x => x.MutationHash), new CreateIndexOptions { Background = true, Unique = true });
-            await TransactionCollection.Indexes.CreateOneAsync(Builders<MongoDbTransaction>.IndexKeys.Ascending(x => x.Records), new CreateIndexOptions { Background = true, Unique = false });
-            await RecordCollection.Indexes.CreateOneAsync(Builders<MongoDbRecord>.IndexKeys.Ascending(x => x.Type).Ascending(x => x.Name), new CreateIndexOptions { Background = true });
-            await RecordCollection.Indexes.CreateOneAsync(Builders<MongoDbRecord>.IndexKeys.Ascending(x => x.KeyS), new CreateIndexOptions { Background = true });
+            var transactionIndexKeys = Builders<MongoDbTransaction>.IndexKeys;
+
+            var transactionIndexModel = new CreateIndexModel<MongoDbTransaction>(transactionIndexKeys.Ascending(x => x.Timestamp), new CreateIndexOptions { Background = true, Unique = true });
+            await TransactionCollection.Indexes.CreateOneAsync(transactionIndexModel);
+            
+            transactionIndexModel = new CreateIndexModel<MongoDbTransaction>(transactionIndexKeys.Ascending(x => x.MutationHash), new CreateIndexOptions { Background = true, Unique = true });
+            await TransactionCollection.Indexes.CreateOneAsync(transactionIndexModel);
+            
+            transactionIndexModel = new CreateIndexModel<MongoDbTransaction>(transactionIndexKeys.Ascending(x => x.Records), new CreateIndexOptions { Background = true, Unique = false });
+            await TransactionCollection.Indexes.CreateOneAsync(transactionIndexModel);
+
+            var recordIindexKeys = Builders<MongoDbRecord>.IndexKeys;
+
+            var recordIindexModel = new CreateIndexModel<MongoDbRecord>(recordIindexKeys.Ascending(x => x.Type).Ascending(x => x.Name), new CreateIndexOptions { Background = true });
+            await RecordCollection.Indexes.CreateOneAsync(recordIindexModel);
+            
+            recordIindexModel = new CreateIndexModel<MongoDbRecord>(recordIindexKeys.Ascending(x => x.KeyS), new CreateIndexOptions { Background = true });
+            await RecordCollection.Indexes.CreateOneAsync(recordIindexModel);
+
+            //await TransactionCollection.Indexes.CreateOneAsync(Builders<MongoDbTransaction>.IndexKeys.Ascending(x => x.Timestamp), new CreateIndexOptions { Background = true, Unique = true });
+            //await TransactionCollection.Indexes.CreateOneAsync(Builders<MongoDbTransaction>.IndexKeys.Ascending(x => x.MutationHash), new CreateIndexOptions { Background = true, Unique = true });
+            //await TransactionCollection.Indexes.CreateOneAsync(Builders<MongoDbTransaction>.IndexKeys.Ascending(x => x.Records), new CreateIndexOptions { Background = true, Unique = false });
+            //await RecordCollection.Indexes.CreateOneAsync(Builders<MongoDbRecord>.IndexKeys.Ascending(x => x.Type).Ascending(x => x.Name), new CreateIndexOptions { Background = true });
+            //await RecordCollection.Indexes.CreateOneAsync(Builders<MongoDbRecord>.IndexKeys.Ascending(x => x.KeyS), new CreateIndexOptions { Background = true });
         }
 
     }

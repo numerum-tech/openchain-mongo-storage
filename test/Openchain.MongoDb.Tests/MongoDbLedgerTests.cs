@@ -89,7 +89,7 @@ namespace Openchain.MongoDb.Tests
 
             var tf = new TaskFactory();
             var tasks = Enumerable.Range(0, threadCount).Select(
-                x => ParallelismCoherency(x, loopCount, accountCount, x * accountCount / transfertStringLength, transfertStringLength, asset)).ToArray();
+                x => ParallelismCoherencyTask(x, loopCount, accountCount, x * accountCount / transfertStringLength, transfertStringLength, asset)).ToArray();
 
             Task.WaitAll(tasks);
 
@@ -114,13 +114,14 @@ namespace Openchain.MongoDb.Tests
 
             Assert.True(cb.IsEmpty);
 
-            Assert.Equal(0, store.PendingTransactionCollection.Count(x => true));
-            Assert.Equal(0, store.RecordCollection.Count(Builders<MongoDbRecord>.Filter.Exists(x => x.TransactionLock)));
+            Assert.Equal(0, store.PendingTransactionCollection.CountDocuments(x => true));
+            Assert.Equal(0, store.RecordCollection.CountDocuments(Builders<MongoDbRecord>.Filter.Exists(x => x.TransactionLock)));
         }
 
         ConcurrentBag<string> cb = new ConcurrentBag<string>();
         ConcurrentDictionary<int, long> tries = new ConcurrentDictionary<int, long>();
-        public async Task ParallelismCoherency(int thread, int loopCount, int c, int delta, int lCount, string asset)
+
+        internal async Task ParallelismCoherencyTask(int thread, int loopCount, int c, int delta, int lCount, string asset)
         {
             var r = new Random();
             for (int j = 0; j < loopCount; j++)

@@ -46,8 +46,15 @@ namespace Openchain.MongoDb
             database = configuration["database"] ?? "openchain";
             using (var m = new MongoDbAnchorState(connectionString, database))
             {
+
                 await m.AnchorStateCollection.Indexes.DropAllAsync();
-                await m.AnchorStateCollection.Indexes.CreateOneAsync(Builders<MongoDbAnchorStateRecord>.IndexKeys.Ascending(x => x.Timestamp), new CreateIndexOptions { Background = true, Unique = true });
+                
+                var anchorStateIndexKeys = Builders<MongoDbAnchorStateRecord>.IndexKeys;
+                var anchorStateIndexModel = new CreateIndexModel<MongoDbAnchorStateRecord>(anchorStateIndexKeys.Ascending(x => x.Timestamp), new CreateIndexOptions { Background = true, Unique = true });
+                await m.AnchorStateCollection.Indexes.CreateOneAsync(anchorStateIndexModel);
+
+                //await m.AnchorStateCollection.Indexes.DropAllAsync();
+                //await m.AnchorStateCollection.Indexes.CreateOneAsync(Builders<MongoDbAnchorStateRecord>.IndexKeys.Ascending(x => x.Timestamp), new CreateIndexOptions { Background = true, Unique = true });
             }
         }
 
